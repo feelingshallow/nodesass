@@ -1,0 +1,8 @@
+.box {
+  width: 200px;
+  height: 200px;
+  background: #00c1de;
+  color: #451aaa;
+  font-max-size: 23px; }
+  .box .son {
+    width: 200px; }

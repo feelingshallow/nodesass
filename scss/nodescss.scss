@@ -1,0 +1,49 @@
+$b-color:#451aaa;
+$width:200px;
+.box{
+  width:200px;
+  height: 200px;
+  background: #00c1de;
+  color: $b-color;
+  font-max-size: 23px;
+  .son{
+    width:$width;
+  }
+}
+@mixin rounded-box{
+  border-radius: 5px;
+  font-size: 20px;
+  a{
+    font-weight: 800;
+    font-size: 21px;
+    margin-left: 0;
+  }
+}
+.sun{
+   background: #1C2327;
+   color: #2edc6d;
+   @extend .son;
+   @include rounded-box;
+ }
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+p:before {
+  content: "Foo " + Bar;
+  font-family: sans- + "serif";
+}
+$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+.ss{
+  width: $width;
+}

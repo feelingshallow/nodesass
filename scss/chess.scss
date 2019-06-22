@@ -1,0 +1,72 @@
+@import "mixin";
+@import "var";
+.box{
+  width: $w;
+  height: $w;
+  @include center;
+  background-image: url("../img/qipan.jpg");
+  background-position: center;
+  background-size: auto;
+  opacity: 1;
+}
+.help{
+
+}
+.chess{
+  width: $r * 2;
+  height: $r * 2;
+  float: left;
+  position: relative;
+  z-index: 99;
+  border-radius: 50%;
+}
+.red{
+  background:radial-gradient(15px 15px at 15px 15px,#fff,#e2e2e2);
+  box-shadow:2px 2px 4px rgba(0,0,0,0.3);
+}
+.black{
+  background:radial-gradient(10px 10px at 15px 15px,#fff,#333);
+  box-shadow:2px 2px 4px rgba(0,0,0,0.4);
+}
+.heng{
+  width: $w -$r*2;
+  height: 1px;
+  background: black;
+  position: absolute;
+  left: $r;
+  transform: translate3d(-300%,0,0);
+  animation: right 1s 1 ease-in forwards;
+}
+.shu{
+  width: 1px;
+  height: $w - $r*2;
+  background: black;
+  position: absolute;
+  top:$r;
+  transform: translate3d(0,-300%,0);
+  animation: down 1s 1 ease-in forwards;
+}
+ @for $i from 1 through 15{
+   .heng:nth-of-type(#{$i}){
+     top:(2*$i - 1)* $r;
+     animation-delay: 100ms * $i;
+   }
+   .shu:nth-of-type(#{$i}){
+     left:(2*$i - 1)* $r;
+     animation-delay: 100ms * $i;
+   }
+ }
+@keyframes down {
+   from{
+     transform: translate3d(0,-300%,0);
+   }to{
+      transform:translate3d(0,0,0);
+    }
+ }
+@keyframes right {
+  from{
+    transform: translate3d(-300%,0,0);
+  }to{
+     transform:translate3d(0,0,0);
+   }
+}
